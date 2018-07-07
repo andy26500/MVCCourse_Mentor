@@ -251,6 +251,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\Index2.cshtml" />
     <Content Include="Views\Products\AddNewProduct.cshtml" />
+    <Content Include="Views\Products\EditOne.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
