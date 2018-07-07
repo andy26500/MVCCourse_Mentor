@@ -3,12 +3,21 @@ namespace MVC5Course.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
+    using MVC5Course.Models.InputValidations;
+
+
     [MetadataType(typeof(ClientMetaData))]
-    public partial class Client
+    public partial class Client : IValidatableObject
     {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (this.DateOfBirth.Value.Year > 1980 && this.City == "Taipei")
+            {
+                yield return new ValidationResult("條件錯誤", new string[] { "DateOfBirth", "City" });
+            }
+        }
     }
-    
+
     public partial class ClientMetaData
     {
         [Required]
@@ -21,6 +30,7 @@ namespace MVC5Course.Models
         public string MiddleName { get; set; }
         
         [StringLength(40, ErrorMessage="欄位長度不得大於 40 個字元")]
+        [身份證字號]
         public string LastName { get; set; }
         
         [StringLength(1, ErrorMessage="欄位長度不得大於 1 個字元")]
