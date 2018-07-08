@@ -11,9 +11,9 @@ namespace MVC5Course.Models
     {
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (this.DateOfBirth.Value.Year > 1980 && this.City == "Taipei")
+            if (this.Longitude.HasValue != this.Latitude.HasValue)
             {
-                yield return new ValidationResult("條件錯誤", new string[] { "DateOfBirth", "City" });
+                yield return new ValidationResult("經緯度欄位必須一起設定", new string[] { "Longitude", "Latitude" });
             }
         }
     }
@@ -24,18 +24,24 @@ namespace MVC5Course.Models
         public int ClientId { get; set; }
         
         [StringLength(40, ErrorMessage="欄位長度不得大於 40 個字元")]
+        [Required]
         public string FirstName { get; set; }
         
         [StringLength(40, ErrorMessage="欄位長度不得大於 40 個字元")]
+        [Required]
         public string MiddleName { get; set; }
         
         [StringLength(40, ErrorMessage="欄位長度不得大於 40 個字元")]
-        [身份證字號]
+        [Required]
         public string LastName { get; set; }
         
         [StringLength(1, ErrorMessage="欄位長度不得大於 1 個字元")]
+        [Required]
         public string Gender { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public Nullable<System.DateTime> DateOfBirth { get; set; }
+        [Required]
         public Nullable<double> CreditRating { get; set; }
         
         [StringLength(7, ErrorMessage="欄位長度不得大於 7 個字元")]
@@ -59,7 +65,11 @@ namespace MVC5Course.Models
         public Nullable<double> Longitude { get; set; }
         public Nullable<double> Latitude { get; set; }
         public string Notes { get; set; }
-    
+
+        [身份證字號]
+        public string IdNumber { get; set; }
+
+
         public virtual Occupation Occupation { get; set; }
         public virtual ICollection<Order> Order { get; set; }
     }
