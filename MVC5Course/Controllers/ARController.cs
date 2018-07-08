@@ -33,5 +33,20 @@ namespace MVC5Course.Controllers
                 Encoding.GetEncoding("Big5"));
         }
 
+        public ActionResult FileTest(string dl)
+        {
+            if (String.IsNullOrEmpty(dl))
+            {
+                return File(Server.MapPath("~/App_Data/fifa-18-world-cup.jpg"),
+                    "image/jpeg");
+            }
+            else
+            {
+                return File(Server.MapPath("~/App_Data/fifa-18-world-cup.jpg"),
+                    "image/jpeg", "My-FIFA-Picture.jpg");
+            }
+        }
+
+
     }
 }
