@@ -11,7 +11,7 @@ using MVC5Course.Models;
 namespace MVC5Course.Controllers
 {
     [RoutePrefix("clients")]
-    public class ClientsController : Controller
+    public class ClientsController : BaseController
     {
         ClientRepository repo;
         OccupationRepository occuRepo;
