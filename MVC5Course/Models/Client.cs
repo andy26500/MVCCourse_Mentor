@@ -38,6 +38,7 @@ namespace MVC5Course.Models
         public Nullable<double> Latitude { get; set; }
         public string Notes { get; set; }
         public string IdNumber { get; set; }
+        public bool IsDeleted { get; set; }
     
         public virtual Occupation Occupation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

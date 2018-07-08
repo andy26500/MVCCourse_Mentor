@@ -27,6 +27,7 @@
           <Property Name="Latitude" Type="float" />
           <Property Name="Notes" Type="nvarchar(max)" />
           <Property Name="IdNumber" Type="char" MaxLength="10" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Occupation">
           <Key>
@@ -165,6 +166,7 @@
           <NavigationProperty Name="Occupation" Relationship="Self.FK_Client_Occupation" FromRole="Client" ToRole="Occupation" />
           <NavigationProperty Name="Order" Relationship="Self.fk_Order_ClientId" FromRole="Client" ToRole="Order" />
           <Property Name="IdNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Occupation">
           <Key>
@@ -290,6 +292,7 @@
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="FabricsModel.Client">
               <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />

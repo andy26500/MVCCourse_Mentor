@@ -12,7 +12,7 @@ namespace MVC5Course.Models
             {
                 return base.All();
             }
-            return base.All().Where(p => p.CreditRating < 2);
+            return base.All().Where(p => p.CreditRating < 2 && p.IsDeleted == false);
         }
         public Client Find(int id)
         {
@@ -29,6 +29,11 @@ namespace MVC5Course.Models
             }
 
             return client;
+        }
+
+        public override void Delete(Client entity)
+        {
+            entity.IsDeleted = true;
         }
     }
 
