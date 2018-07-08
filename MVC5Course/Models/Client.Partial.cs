@@ -11,6 +11,10 @@ namespace MVC5Course.Models
     {
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
+            if (this.ClientId == 0)
+            {
+                // 通常 P.K. 為 0 代表著正在執行「新增」動作
+            }
             if (this.Longitude.HasValue != this.Latitude.HasValue)
             {
                 yield return new ValidationResult("經緯度欄位必須一起設定", new string[] { "Longitude", "Latitude" });
