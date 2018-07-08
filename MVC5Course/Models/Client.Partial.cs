@@ -40,6 +40,7 @@ namespace MVC5Course.Models
         public string Gender { get; set; }
 
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         [Required]
         public Nullable<double> CreditRating { get; set; }
