@@ -119,7 +119,8 @@ namespace MVC5Course.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("edit/{id}")]
-        public ActionResult Edit([Bind(Include = "ClientId,FirstName,MiddleName,LastName,Gender,DateOfBirth,CreditRating,XCode,OccupationId,TelephoneNumber,Street1,Street2,City,ZipCode,Longitude,Latitude,Notes,IdNumber")] Client client)
+        public ActionResult Edit([Bind(Include = "ClientId,FirstName,MiddleName,LastName,Gender,DateOfBirth,CreditRating,XCode,OccupationId,TelephoneNumber,Street1,Street2,City,ZipCode,Longitude,Latitude,Notes,IdNumber")]
+        Client client)
         {
             if (ModelState.IsValid)
             {
@@ -130,7 +131,12 @@ namespace MVC5Course.Controllers
             }
 
             ViewBag.OccupationId = new SelectList(occuRepo.All(), "OccupationId", "OccupationName", client.OccupationId);
-            return View(client);
+
+            //ModelState.Clear();
+            //ModelState.Remove("Latitude");
+
+            Client item = repo.Find(client.ClientId);
+            return View(item);
         }
 
         // GET: Clients/Delete/5
