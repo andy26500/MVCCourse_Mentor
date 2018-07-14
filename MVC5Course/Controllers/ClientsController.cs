@@ -32,6 +32,7 @@ namespace MVC5Course.Controllers
 
         [HttpPost]
         [Route("BatchUpdate")]
+        [HandleError(ExceptionType = typeof(DbEntityValidationException), View = "Error_DbEntityValidationException")]
         public ActionResult BatchUpdate(ClientBatchVM[] data, PageCondVM page)
         {
             //page.keyword
@@ -47,23 +48,7 @@ namespace MVC5Course.Controllers
                     client.LastName = vm.LastName;
                 }
 
-                try
-                {
-                    db.SaveChanges();
-                }
-                catch (DbEntityValidationException ex)
-                {
-                    List<string> errors = new List<string>();
-                    foreach (var vError in ex.EntityValidationErrors)
-                    {
-                        foreach (var err in vError.ValidationErrors)
-                        {
-                            errors.Add(err.PropertyName + ": " + err.ErrorMessage);
-                        }
-                    }
-
-                    return Content(String.Join(", ", errors.ToArray()));
-                }
+                db.SaveChanges();
 
                 return RedirectToAction("Index");
             }

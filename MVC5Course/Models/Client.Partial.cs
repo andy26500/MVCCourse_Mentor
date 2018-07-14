@@ -7,7 +7,7 @@ namespace MVC5Course.Models
 
 
     [MetadataType(typeof(ClientMetaData))]
-    public partial class Client : IValidatableObject
+    public partial class Client : IValidatableObject, IClientBatchUpdate
     {
         partial void Init()
         {

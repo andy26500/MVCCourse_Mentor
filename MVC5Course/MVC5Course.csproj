@@ -159,6 +159,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Models\ClientBatchVM.cs" />
+    <Compile Include="Models\IClientBatchUpdate.cs" />
     <Compile Include="Models\MyVM.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -336,6 +337,7 @@
     <Content Include="Views\MB\ViewBagDemo.cshtml" />
     <Content Include="Views\MB\ViewDataDemo.cshtml" />
     <Content Include="Views\MB\TempDataDemo.cshtml" />
+    <Content Include="Views\Shared\Error_DbEntityValidationException.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

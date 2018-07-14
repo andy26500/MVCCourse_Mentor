@@ -11,7 +11,7 @@ namespace MVC5Course.Models
         public int ClientId { get; set; }
         [Required]
         public string FirstName { get; set; }
-        [Required]
+        //[Required]
         public string MiddleName { get; set; }
         [Required]
         public string LastName { get; set; }
