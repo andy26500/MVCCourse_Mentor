@@ -18,6 +18,9 @@ namespace MVC5Course.Controllers
         public ActionResult ViewBagDemo()
         {
             ViewBag.Text = "Hi";
+
+            ViewData["Data"] = db.Client.Take(5).ToList();
+
             return View();
         }
         public ActionResult ViewDataDemo()
