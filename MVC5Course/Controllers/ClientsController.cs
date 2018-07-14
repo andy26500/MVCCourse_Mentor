@@ -32,8 +32,9 @@ namespace MVC5Course.Controllers
 
         [HttpPost]
         [Route("BatchUpdate")]
-        public ActionResult BatchUpdate(ClientBatchVM[] data)
+        public ActionResult BatchUpdate(ClientBatchVM[] data, PageCondVM page)
         {
+            //page.keyword
             //data[0].ClientId
 
             if (ModelState.IsValid)
