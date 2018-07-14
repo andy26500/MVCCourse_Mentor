@@ -14,10 +14,13 @@ namespace MVC5Course.Models
     
     public partial class Product
     {
+    	partial void Init();
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
             this.OrderLine = new HashSet<OrderLine>();
+    		this.Init();
         }
     
         public int ProductId { get; set; }

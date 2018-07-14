@@ -9,6 +9,11 @@ namespace MVC5Course.Models
     [MetadataType(typeof(ClientMetaData))]
     public partial class Client : IValidatableObject
     {
+        partial void Init()
+        {
+            this.DateOfBirth = DateTime.Now.AddYears(-18);
+        }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (this.ClientId == 0)
