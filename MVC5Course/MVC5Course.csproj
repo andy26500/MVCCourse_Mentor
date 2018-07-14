@@ -329,10 +329,10 @@
     <Content Include="Views\Clients\Search.cshtml" />
     <Content Include="Views\AR\ViewTest.cshtml" />
     <Content Include="Views\AR\Index.cshtml" />
+    <Content Include="Views\MB\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\MB\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

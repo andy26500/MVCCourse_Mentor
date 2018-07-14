@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    public class MBController : Controller
+    public class MBController : BaseController
     {
-        // GET: MB
         public ActionResult Index()
         {
+            var data = "Hello World";
+            ViewData.Model = data;
             return View();
         }
     }
