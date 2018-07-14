@@ -45,5 +45,11 @@ namespace MVC5Course.Controllers
         {
             return Content(name);
         }
+
+        [HttpPost]
+        public ActionResult FormTest(FormCollection form)
+        {
+            return View(form);
+        }
     }
 }
