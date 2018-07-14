@@ -29,6 +29,33 @@ namespace MVC5Course.Controllers
             return View(client.Take(10));
         }
 
+        [HttpPost]
+        [Route("BatchUpdate")]
+        public ActionResult BatchUpdate(ClientBatchVM[] data)
+        {
+            //data[0].ClientId
+
+            if (ModelState.IsValid)
+            {
+                foreach (var vm in data)
+                {
+                    var client = db.Client.Find(vm.ClientId);
+                    client.FirstName = vm.FirstName;
+                    client.MiddleName = vm.MiddleName;
+                    client.LastName = vm.LastName;
+                }
+
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            ViewData.Model = repo.All().Take(10);
+
+            return View("Index");
+        }
+
+
         [Route("search")]
         public ActionResult Search(string keyword)
         {

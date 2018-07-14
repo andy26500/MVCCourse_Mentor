@@ -14,55 +14,71 @@
     @Html.TextBox("keyword", null, new { placeholder = "請輸入關鍵字" })
     <input type="submit" />
 }
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreditRating)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MiddleName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOfBirth)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreditRating)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ClientId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ClientId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ClientId })
-        </td>
-    </tr>
+@using (Html.BeginForm("BatchUpdate", "Clients"))
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditRating)
+            </th>
+            <th></th>
+        </tr>
+
+        @{ 
+            var data = Model.ToArray();
+        }
+
+        @for(var i = 0; i < data.Length;i++)
+        {
+            @Html.HiddenFor(modelItem => data[i].ClientId)
+            <tr>
+                <td>
+                    @Html.EditorFor(modelItem => data[i].FirstName)
+                    @Html.ValidationMessageFor(model => data[i].FirstName, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => data[i].MiddleName)
+                    @Html.ValidationMessageFor(model => data[i].MiddleName, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => data[i].LastName)
+                    @Html.ValidationMessageFor(model => data[i].LastName, "", new { @class = "text-danger" })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data[i].Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data[i].DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => data[i].CreditRating)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = data[i].ClientId }) |
+                    @Html.ActionLink("Details", "Details", new { id = data[i].ClientId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = data[i].ClientId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <input type="submit" />
 }
-
-</table>
