@@ -157,7 +157,9 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocalOnlyAttribute.cs" />
     <Compile Include="Controllers\MBController.cs" />
+    <Compile Include="Controllers\ShareDataAttribute.cs" />
     <Compile Include="Models\ClientBatchVM.cs" />
     <Compile Include="Models\IClientBatchUpdate.cs" />
     <Compile Include="Models\MyVM.cs" />

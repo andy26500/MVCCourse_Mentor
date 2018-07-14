@@ -32,7 +32,8 @@ namespace MVC5Course.Controllers
 
         [HttpPost]
         [Route("BatchUpdate")]
-        [HandleError(ExceptionType = typeof(DbEntityValidationException), View = "Error_DbEntityValidationException")]
+        [HandleError(ExceptionType = typeof(DbEntityValidationException), 
+                      View = "Error_DbEntityValidationException")]
         public ActionResult BatchUpdate(ClientBatchVM[] data, PageCondVM page)
         {
             //page.keyword
