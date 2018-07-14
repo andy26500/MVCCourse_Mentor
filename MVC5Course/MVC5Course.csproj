@@ -330,6 +330,9 @@
     <Content Include="Views\AR\ViewTest.cshtml" />
     <Content Include="Views\AR\Index.cshtml" />
     <Content Include="Views\MB\Index.cshtml" />
+    <Content Include="Views\MB\ViewBagDemo.cshtml" />
+    <Content Include="Views\MB\ViewDataDemo.cshtml" />
+    <Content Include="Views\MB\TempDataDemo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
