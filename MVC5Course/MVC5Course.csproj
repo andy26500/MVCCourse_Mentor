@@ -518,6 +518,7 @@
     <Content Include="Views\Razor\_ViewStart.cshtml" />
     <Content Include="Views\Razor\Dashboard.cshtml" />
     <Content Include="Views\Razor\_LayoutMetro.cshtml" />
+    <Content Include="Views\Clients\OrderList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

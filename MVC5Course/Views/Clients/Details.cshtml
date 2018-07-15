@@ -148,6 +148,41 @@
 
     </dl>
 </div>
+
+
+<h3>Order List</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            OrderDate
+        </th>
+        <th>
+            OrderTotal
+        </th>
+        <th>
+            OrderStatus
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Order)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+        </tr>
+    }
+
+</table>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
     @Html.ActionLink("Back to List", "Index")
