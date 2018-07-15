@@ -84,6 +84,7 @@ namespace MVC5Course.Controllers
         }
 
         [Route("{id}/orders")]
+        [ChildActionOnly]
         public ActionResult Details_OrderList(int id)
         {
             ViewData.Model = repo.Find(id).Order.ToList();
