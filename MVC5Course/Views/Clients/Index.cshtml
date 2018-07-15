@@ -11,6 +11,9 @@
 </p>
 @using (Html.BeginForm("Search", "Clients", FormMethod.Get, null))
 {
+
+    @Html.DropDownList("CreditRating", null, "--請選擇評價等級--", new { @class = "form-control" } )
+
     @Html.TextBox("keyword", null, new { placeholder = "請輸入關鍵字" })
     <input type="submit" />
 }

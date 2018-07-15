@@ -26,6 +26,19 @@ namespace MVC5Course.Controllers
         [Route("")]
         public ActionResult Index()
         {
+            ViewBag.keyword = "Hello World";
+
+            var items = (from p in db.Client
+                         select p.CreditRating)
+                         .Distinct()
+                         .OrderBy(p => p)
+                         .Select(p => new SelectListItem()
+                         {
+                             Text = p.Value.ToString(),
+                             Value = p.Value.ToString()
+                         });
+            ViewBag.CreditRating = new SelectList(items, "Value", "Text");
+
             var client = repo.All();
             return View(client.Take(10));
         }
@@ -61,9 +74,15 @@ namespace MVC5Course.Controllers
 
 
         [Route("search")]
-        public ActionResult Search(string keyword)
+        public ActionResult Search(string keyword, string CreditRating)
         {
             var client = repo.搜尋名稱(keyword);
+
+            var items = (from p in db.Client
+                         select p.CreditRating)
+                         .Distinct()
+                         .OrderBy(p => p);
+            ViewBag.CreditRating = new SelectList(items);
 
             return View("Index", client);
         }
