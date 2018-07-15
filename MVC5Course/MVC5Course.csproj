@@ -161,6 +161,7 @@
     <Compile Include="Controllers\MBController.cs" />
     <Compile Include="Controllers\RazorController.cs" />
     <Compile Include="Controllers\ShareDataAttribute.cs" />
+    <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Models\ClientBatchVM.cs" />
     <Compile Include="Models\IClientBatchUpdate.cs" />
     <Compile Include="Models\MyVM.cs" />
