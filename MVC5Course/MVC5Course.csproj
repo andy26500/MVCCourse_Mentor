@@ -342,6 +342,8 @@
     <Content Include="Views\MB\TempDataDemo.cshtml" />
     <Content Include="Views\Shared\Error_DbEntityValidationException.cshtml" />
     <Content Include="Views\Razor\Index.cshtml" />
+    <Content Include="Views\Razor\Page1.cshtml" />
+    <Content Include="Views\Razor\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
