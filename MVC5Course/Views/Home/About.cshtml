@@ -6,12 +6,15 @@
 
 <p>Use this area to provide additional information.</p>
 
-@{
-    var routes = ViewContext.RouteData.Values;
-}
 
-@routes["id"].ToString()
-
+@Model
 @ViewData.ModelState["id"].Value.AttemptedValue
+@{ var routeValues = ViewContext.RouteData.Values; }
+@routeValues["id"].ToString()
+@HttpContext.Current.Items
 
+
+@ViewContext.ViewData.Model
+@ViewContext.ViewData.ModelState["id"].Value.AttemptedValue
+@ViewContext.RouteData.Values["action"].ToString()
 @ViewContext.HttpContext.Items
