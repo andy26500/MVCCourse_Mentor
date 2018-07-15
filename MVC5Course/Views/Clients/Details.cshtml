@@ -150,38 +150,13 @@
 </div>
 
 
-<h3>Order List</h3>
+<h3>Order List ( Html.Partial )</h3>
 
+@Html.Partial("OrderList", Model.Order.ToList())
 
-<table class="table">
-    <tr>
-        <th>
-            OrderDate
-        </th>
-        <th>
-            OrderTotal
-        </th>
-        <th>
-            OrderStatus
-        </th>
-    </tr>
+<h3>Order List ( Html.Action )</h3>
 
-    @foreach (var item in Model.Order)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderStatus)
-            </td>
-        </tr>
-    }
-
-</table>
+@Html.Action("Details_OrderList", new { id = Model.ClientId })
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
