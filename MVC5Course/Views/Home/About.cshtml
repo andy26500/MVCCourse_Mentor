@@ -5,3 +5,12 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+@{
+    var routes = ViewContext.RouteData.Values;
+}
+
+@routes["id"].ToString()
+
+@ViewData.ModelState["id"].Value.AttemptedValue
+
