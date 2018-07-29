@@ -18,9 +18,10 @@ namespace MVC5Course.Controllers
         public ActionResult Index()
         {
             var data = db.Product
-                .OrderByDescending(p => p.ProductId)
-                .Take(10)
-                .ToList();
+                .OrderByDescending(p => p.ProductId);
+
+
+
             return View(data);
         }
 
