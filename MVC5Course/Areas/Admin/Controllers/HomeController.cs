@@ -9,8 +9,9 @@ namespace MVC5Course.Areas.Admin.Controllers
     public class HomeController : Controller
     {
         // GET: Admin/Home
-        public ActionResult Index()
+        public ActionResult Index(string msg)
         {
+            ViewBag.Msg = msg + "');\r\n" + "console.log('jj";
             return View();
         }
     }
