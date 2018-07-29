@@ -13,6 +13,9 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<div id="loading" style="display: none">
+    <img src="http://www.ajaxload.info/cache/FF/FF/FF/00/00/00/8-0.gif" />
+</div>
 <table class="table">
     <tr>
         <th>
@@ -46,7 +49,7 @@
         </td>
         <td>
             @{ 
-                var ajaxOptions = new AjaxOptions() { UpdateTargetId ="details" };
+                var ajaxOptions = new AjaxOptions() { UpdateTargetId ="details", LoadingElementId="loading" };
             }
             @Ajax.ActionLink("Edit", "Edit", new { id=item.ProductId }, ajaxOptions) |
             @Ajax.ActionLink("Details", "Details", new { id=item.ProductId }, ajaxOptions) |
