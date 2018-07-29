@@ -2,6 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
+    if (IsAjax)
+    {
+        Layout = "";
+    }
 }
 
 <h2>Index</h2>
@@ -41,9 +45,13 @@
             @Html.DisplayFor(modelItem => item.Stock)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Ajax.ActionLink("Details", "Details", new { id=item.ProductId }, new AjaxOptions() { UpdateTargetId ="details" }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            @{ 
+                var ajaxOptions = new AjaxOptions() { UpdateTargetId ="details" };
+            }
+            @Ajax.ActionLink("Edit", "Edit", new { id=item.ProductId }, ajaxOptions) |
+            @Ajax.ActionLink("Details", "Details", new { id=item.ProductId }, ajaxOptions) |
+            @Ajax.ActionLink("Delete", "Delete", new { id=item.ProductId },
+                new AjaxOptions() { HttpMethod="POST", UpdateTargetId="main", Confirm = "你確定要刪除嗎？" })
         </td>
     </tr>
 }
