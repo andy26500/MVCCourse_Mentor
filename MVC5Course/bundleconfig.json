@@ -1,0 +1,12 @@
+[
+  {
+    "outputFileName": "js/bundle.js",
+    "inputFiles": [
+      "js/bootstrap.js",
+      "js/counter.js",
+      "js/custom.js",
+      "js/excanvas.js",
+      "js/jquery.cookie.js"
+    ]
+  }
+]
