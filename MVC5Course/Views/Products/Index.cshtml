@@ -61,7 +61,10 @@
 
 </table>
 
-@Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { pageNo = p }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing("main"))
+@Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { pageNo = p }), new PagedListRenderOptions()
+{
+    ContainerDivClasses = new string[] { "pagination-container", "pager1" }
+})
 
 
 <div id="details"></div>
