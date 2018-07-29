@@ -17,7 +17,11 @@ namespace MVC5Course.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[]
+                {
+                    "MVC5Course.Areas.Admin.Controllers"
+                }
             );
         }
     }
