@@ -21,9 +21,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("首頁", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("關於", "About", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("連絡人", "Contact", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Admin's Home", "Index", "Home", new { area = "Admin" }, null)</li>
                 </ul>
             </div>
         </div>
