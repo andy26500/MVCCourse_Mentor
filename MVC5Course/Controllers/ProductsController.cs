@@ -9,18 +9,18 @@ using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
 using Omu.ValueInjecter;
+using X.PagedList;
 
 namespace MVC5Course.Controllers
 {
     public class ProductsController : BaseController
     {
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(int pageNo = 1)
         {
             var data = db.Product
-                .OrderByDescending(p => p.ProductId);
-
-
+                .OrderByDescending(p => p.ProductId)
+                .ToPagedList(pageNumber: pageNo, pageSize: 10);
 
             return View(data);
         }

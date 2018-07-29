@@ -61,6 +61,9 @@
 
 </table>
 
+@Html.PagedListPager(Model as IPagedList, (p) => Url.Action("Index", new { pageNo = p }))
+
+
 <div id="details"></div>
 
 @section Scripts {
